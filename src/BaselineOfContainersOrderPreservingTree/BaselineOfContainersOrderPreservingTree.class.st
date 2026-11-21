@@ -10,7 +10,15 @@ BaselineOfContainersOrderPreservingTree >> baseline: spec [
 	<baseline>
 	spec for: #common do: [
 		spec
-			package: 'Containers-OrderPreservingTree';
-			package: 'Containers-OrderPreservingTree-Tests';
-			package: 'Containers-OrderPreservingTree-Visualizations' ]
+			baseline: 'ContainersEssentials'
+			with: [
+			spec repository: 'github://massimo-nocentini/Containers-Essentials:master' ].
+
+		spec
+			package: 'Containers-OrderPreservingTree'
+			with: [ spec requires: #( 'ContainersEssentials' ) ];
+			package: 'Containers-OrderPreservingTree-Tests'
+			with: [ spec requires: #( 'Containers-OrderPreservingTree' ) ];
+			package: 'Containers-OrderPreservingTree-Visualizations'
+			with: [ spec requires: #( 'Containers-OrderPreservingTree' ) ] ]
 ]

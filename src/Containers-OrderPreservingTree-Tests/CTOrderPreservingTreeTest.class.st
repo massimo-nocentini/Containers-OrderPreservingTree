@@ -22,7 +22,7 @@ CTOrderPreservingTreeTest >> testAdd [
 		parent: 7 child: 8;
 		parent: 4 child: 9.
 
-	tree asTreePresenter openWithSpec.
+	tree asTreePresenter open.
 
 	children := tree children.
 
