@@ -1,5 +1,5 @@
 "
-A CTOrderPreservingTreeTest is a test class for testing the behavior of CTOrderPreservingTree
+A `CTOrderPreservingTreeTest` is a test class for testing the behavior of `CTOrderPreservingTree`
 "
 Class {
 	#name : #CTOrderPreservingTreeTest,
