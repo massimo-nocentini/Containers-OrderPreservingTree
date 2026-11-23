@@ -1,5 +1,5 @@
 "
-I am a tree, or a forest, given by the relation from each child to its parent. I remember the order in which the pairs were added, and I enumerate the children of a node, and the roots, in that order.
+I am a tree, or a forest, given by the relation from each child to its parent. I remember the order in which the pairs were added, and I enumerate the children of a node in that order. The roots are ordered by the index of one of their pairs, not always the first one added.
 
 ## Building
 
@@ -12,7 +12,7 @@ I am a tree, or a forest, given by the relation from each child to its parent. I
 - `roots`, `leaves` and `asArray` answer arrays of nodes, the last one in preorder.
 - `children` answers a dictionary from each node to the array of its children, and `parents` one from each child to its parent.
 - `do:`, `associationsDo:`, `pre:post:` and `withIndexDo:` enumerate me. The blocks of `pre:post:` take a node and its level: the first before the children of the node, the second after them, with what the first block answered as its second argument.
-- `select:` answers a new tree, without the nodes for which the block, of a child and its parent, answers false, and without their descendants.
+- `select:` answers a new tree, without the nodes for which the block, of a child and its parent, answers false, and without their descendants. A root is given as its own parent, and one without any kept child is left out too.
 
 ```smalltalk
 | tree |
