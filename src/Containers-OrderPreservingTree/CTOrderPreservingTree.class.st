@@ -1,3 +1,34 @@
+"
+I am a tree, or a forest, given by the relation from each child to its parent. I remember the order in which the pairs were added, and I enumerate the children of a node, and the roots, in that order.
+
+## Building
+
+- `parent:child:` adds a pair. It signals an `Error` when the child has another parent already.
+- `parent:children:` adds a pair for each child of a collection.
+- `parent:child:onCycleDo:` adds a pair and, when the parent descends from the child, evaluates the block with the cycle, a chain of `ValueLink` objects that starts and ends with the child.
+
+## Looking at me
+
+- `roots`, `leaves` and `asArray` answer arrays of nodes, the last one in preorder.
+- `children` answers a dictionary from each node to the array of its children, and `parents` one from each child to its parent.
+- `do:`, `associationsDo:`, `pre:post:` and `withIndexDo:` enumerate me. The blocks of `pre:post:` take a node and its level: the first before the children of the node, the second after them, with what the first block answered as its second argument.
+- `select:` answers a new tree, without the nodes for which the block, of a child and its parent, answers false, and without their descendants.
+
+```smalltalk
+| tree |
+tree := CTOrderPreservingTree new
+	parent: 3 child: 4;
+	parent: 4 child: 6;
+	parent: 3 child: 5;
+	yourself.
+tree roots. ""#(3)""
+tree asArray. ""#(3 4 6 5)""
+tree leaves. ""#(6 5)""
+tree children at: 3 ""#(4 5)""
+```
+
+My instance variable `parent` is an `IdentityDictionary` from each child to an association, whose key is the parent and whose value is the index of the pair.
+"
 Class {
 	#name : #CTOrderPreservingTree,
 	#superclass : #Object,

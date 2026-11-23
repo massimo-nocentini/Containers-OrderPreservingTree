@@ -1,3 +1,13 @@
+"
+I present a `CTOrderPreservingTree`, my `tree`, as a tree table, my `treePresenter`. I have no column: who makes me adds them with `withTreePresenterDo:`, as `asPresenter` of the tree does.
+
+```smalltalk
+(CTOrderPreservingTree new
+	parent: 3 child: 4;
+	parent: 3 child: 5;
+	yourself) asPresenter open
+```
+"
 Class {
 	#name : #CTOrderPreservingTreePresenter,
 	#superclass : #SpPresenter,

@@ -1,3 +1,10 @@
+"
+I am the baseline of the order preserving trees. I depend on `ContainersEssentials`, and load three packages:
+
+- `Containers-OrderPreservingTree`, the class `CTOrderPreservingTree`.
+- `Containers-OrderPreservingTree-Tests`, its tests.
+- `Containers-OrderPreservingTree-Visualizations`, its shapes and its presenter.
+"
 Class {
 	#name : #BaselineOfContainersOrderPreservingTree,
 	#superclass : #BaselineOf,
